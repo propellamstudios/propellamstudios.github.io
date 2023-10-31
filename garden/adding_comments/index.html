@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJP0KEGQ2K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-WJP0KEGQ2K');
+    </script>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700;800&family=Roboto:wght@200;300;400;500;600&family=Encode+Sans+Semi+Condensed:wght@400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/all.min.css">
+    <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/my_style.css">
+    
+    
+    
+    <title>Propellam Studios | Adding comments with Giscus</title>
+    <meta name="description" content="Thoughts on different commenting systems for static sites">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+</head><body><nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="https://propellamstudios.github.io">
+            
+            <b style="font-weight: 800;">PS</b>
+            
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0"><li class='nav-item '>
+                    <a class="nav-link" href="/garden/"> Thought Garden</a>
+                </li>
+            <li class='nav-item '>
+                    <a class="nav-link" href="/projects/"> Projects</a>
+                </li>
+            <li class='nav-item '>
+                    <a class="nav-link" href="/library/"> Library</a>
+                </li>
+            <li class='nav-item '>
+                    <a class="nav-link" href="/about/"> About</a>
+                </li>
+             
+            <li class="nav-item px-2 pt-1">
+                <a class="btn fas fa-moon" id="dark-mode-toggle"></a>
+            </li>
+            </ul>
+        </div>
+    </div>
+</nav><div id="content">
+
+<div class="container" style="max-width: 800px;">
+    <div class="py-4 rounded-3">
+        <div class="container-fluid py-2">
+            <h1 class="display-2 mb-4 text-center">Adding comments with Giscus</h1>
+        </div>
+        
+        <p class="text-center fs-4 fst-italic serif">Thoughts on different commenting systems for static sites</p>
+        
+        <div class="text-center pt-4">
+            
+        </div>
+    </div>
+    <div class="row justify-content-center mb-5">
+        <div class="col-12">
+            <p class="card-date m-0">
+                
+                
+                    Created Oct 18, 2023 - 
+                
+                Last updated: Oct 18, 2023
+            </p>
+            <hr class="dropdown-divider">
+            <div class="row justify-content-between">
+                <div class="col-sm-4">
+                    
+    
+    <span class="status">Seeding 🌱</span>
+    
+
+                </div>
+                <div class="col-sm-8" style="text-align: right;">
+                    
+                
+                    
+                    <span class="badge tag-badge">reflections</span>
+                    
+                
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-2">
+        <div class="serif main-content">
+            <p>This blog is created using <a href="https://gohugo.io/">hugo</a>, which is a open source framework used to generate static sites. Static sites are websites where all the content is &lsquo;fixed&rsquo; and served up to the user as is; the site does not change response to user interaction. Most - maybe all? - of the biggest and most popular sites are not static sites, but are instead dynamic sites, since they have to respond to user interaction to do whatever it is you&rsquo;re trying to do. How would Google work if it couldn&rsquo;t serve you a list of results to your search query? What would be the point of Amazon if you couldn&rsquo;t add items to your shopping cart, then checkout and order them? But that responsiveness and dynamic nature comes at the cost of a lot more backend infrastructure; it usually involves setting up a database, and also writing client-side (the user) or server-side scripting which governs how the pages that get served to the user change.</p>
+<p>This type of thing is excessive for small blogs like this one, which is why static sites frameworks like Hugo or Jekyll are quite popular for people looking to create blogs. Static sites are generally much more lightweight and easier to both create and maintain than dynamic sites, and it&rsquo;s easier to find free options to run/host static sites compared to dynamic sites.</p>
+<p>However, one piece of functionality that blogs <em>do</em> often have or want that is difficult to natively implement in static sites is commenting. If you think about it, commenting is a dynamic interaction; someone leaves a comment on a post, and then the website changes in order to display the post. So how can a static site have commenting, when the entire idea is that it has fixed content?</p>
+<p>Pondering this question sent me down a rabbit hole of looking at a whole array of options, because it turns out that quite a lot of other people have asked that question before, and come up with a lot of different solutions. One of the most popular solutions is Disqus, which is a commenting plugin that can be added to blogs or other types of websites. Disqus has a lot of nice features; it can allow for anonymous commenting, or require people include their name and email address in order to submit a comment. You can also add on other tools to Disqus in order to prevent spam or bots, e.g. reCaptcha. But there are substantial downsides, too, at least in my opinion: the free tier inserts an array of ads at the bottom of the page - you know, random photos with the captions like, &ldquo;Lose weight with this one weird trick!&rdquo;, or, &ldquo;Make money while you sleep!&rdquo; Or advertising products that look useless, or blasting headlines about &lsquo;celebrities&rsquo; that you&rsquo;ve never heard of before. You know, that type of thing. The other thing is that the text of comments aren&rsquo;t really owned by either the site owner or the commenter, but rather by Disqus. Both of those drawbacks pretty much ruled out Disqus for me.</p>
+<p>There are a lot of other paid commenting systems out there, e.g. Commento or Commentbox (although I&rsquo;m not sure Commentbox is still actively maintained), but it seems like a little much to pay for a commenting system when I&rsquo;m definitely not making any money off this blog (which is okay! I don&rsquo;t ever intend to insert ads etc.), and when I&rsquo;m not sure if there are really going to be comments anyways.</p>
+<p>Reading through a bunch of other folks&rsquo; blog posts about this ended up leading to a couple other options that I seriously considered: <a href="https://isso-comments.de/">Isso</a> and <a href="https://staticman.net/">Staticman</a>. I read a lot about both systems, but they both require using a remote server to store and serve comments. For both systems, it appears that there is very thorough documentation about how to do that, and I probably could have figured it out if I&rsquo;d been willing to sink more time and effort into it, but again, this seemed to be an excess of effort; I&rsquo;m not particularly interested in learning backend web development, I&rsquo;d rather spend that time working on other things. But, if you&rsquo;re reading this and trying to figure out what commenting system to use for your static site, I think that Isso and Staticman were the two most promising frameworks that I came across.</p>
+<p>After all the reading I ended up doing, I ended up implementing <a href="https://giscus.app/">Giscus</a>, which is free open source software (the repo is <a href="https://github.com/giscus/giscus">here</a>). It was actually very simple to add to the Hugo theme I&rsquo;m using for this blog (the <a href="https://github.com/paulmartins/hugo-digital-garden-theme">digital garden theme</a>, created by <a href="https://github.com/paulmartins">Paul Martins</a>) - I was honestly quite surprised and almost a little suspicious as to how easy it was! These two blog posts - <a href="https://blog.arkey.fr/2022/10/16/moving-from-disqus-to-giscus/">Switching from Disqus to Giscus</a> and <a href="https://zhauniarovich.com/post/2021/2021-06-giscus/">Giscus: The New Commenting Engine for My Website</a> were both extremely useful.</p>
+<p>Giscus is a commenting system that is based off of Github Discussions. What git and github are is an entirely different discussion/blog post - and I might actually write a post about it at some point - but in a very, very abbreviated summary, git is a type of version control software that allows users to keep tracked &lsquo;versions&rsquo; of their projects; each project is contained in a repository, which can be saved locally and also on a remote server. Github is a website (and a company that became a subsidiary of Microsoft in 2018) that hosts repositories; that is, it&rsquo;s probably the most popular option for that remote server where people save their repos. Github discussions is a feature on Github that allows Github users to have discussions linked to specific repositories. The creater of Giscus wrote the Giscus app to re-purpose the Github discussions feature to provide comments for static sites, and overall, it works pretty well; I&rsquo;ve commented on a few other people&rsquo;s blogs that use Giscus, and it was a pretty smooth system.</p>
+<p>The one big drawback to using Giscus is that in order to use it to leave comments, you have to have a Github account. It&rsquo;s free and quite simple to sign up for a Github account, but unless you&rsquo;re a software developer, it may be unlikely for you to have a Github account already; even though git is not specific to software development - and in fact, I think that git would be broadly useful for lots of different types of digital work, although it apparently doesn&rsquo;t work quite as smoothly for binary files or very large files - what I&rsquo;ve found in practice is that unless someone is in tech, either professionally or as a hobby, it&rsquo;s unlikely for them to have heard of git or github. The other blogs that I&rsquo;ve found that use Giscus as a commenting tool are typically tech blogs, where most of the audience probably would have Github accounts. For this blog? I guess what&rsquo;s going to happen is that I may potentially find the small handful of people in the world who are interested in bluegrass/oldtime music and who also have Github accounts. 😄</p>
+<p>If you&rsquo;re one of those people, don&rsquo;t be shy! Please feel free to leave a comment on any of my posts; or if you prefer the old-fashioned way, you can email me at propellamstudios @ gmail.com.</p>
+
+        </div>
+    </div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="propellamstudios/propellamstudios.github.io"
+    data-repo-id="R_kgDOKX7u5g"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOKX7u5s4CaKFA"
+    data-mapping="pathname"
+    data-reactions-enabled="0"
+    data-input-position="bottom"
+    data-theme="preferred-color-scheme"
+    data-lang="en"
+    data-loading="lazy"
+    data-strict="1"
+    
+    data-theme="preferred-color-scheme"
+    crossorigin="anonymous"
+    async
+  ></script></div>
+
+
+        </div><div class="container">
+    <div class="row justify-content-between">
+        <div class="col-sm-4">
+            <p class="footer">Propellam Studios © 2023 </p>
+        </div>
+        <div class="col-sm-6 d-flex flex-row-reverse">
+            
+            <a class="footer-social px-2"  href="https://universeodon.com/@propellamstudios" target="_blank"><i class="fab fa-mastodon"></i></a>
+            
+            <a class="footer-social px-2"  href="https://github.com/propellamstudios" target="_blank"><i class="fab fa-github"></i></a>
+            
+        </div>
+    </div>
+</div>
+<script src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script src="/js/isotope.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+<script src="/js/dark.js"></script>
+<script>
+
+
+var savedTheme = localStorage.getItem("dark-mode-storage") || "light" 
+setTheme(savedTheme);
+
+</script>
+<script src="/js/isotope.js"></script>
+<script src="/js/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, securityLevel: 'loose'});</script>
+</body>
+</html>

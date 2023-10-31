@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Thought Garden on Propellam Studios</title>
+    <link>https://propellamstudios.github.io/garden/</link>
+    <description>Recent content in Thought Garden on Propellam Studios</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Propellam Studios ©</copyright>
+    <lastBuildDate>Sat, 30 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://propellamstudios.github.io/garden/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding comments with Giscus</title>
+      <link>https://propellamstudios.github.io/garden/adding_comments/</link>
+      <pubDate>Wed, 18 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://propellamstudios.github.io/garden/adding_comments/</guid>
+      <description>Thoughts on different commenting systems for static sites</description>
+    </item>
+    
+    <item>
+      <title>Introduction to Bluegrass Harmony</title>
+      <link>https://propellamstudios.github.io/garden/bluegrass_harmony/</link>
+      <pubDate>Sat, 07 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://propellamstudios.github.io/garden/bluegrass_harmony/</guid>
+      <description>How to sing in bluegrass harmony: terminology, finding harmony lines, and a dash of music theory</description>
+    </item>
+    
+    <item>
+      <title>On keeping a thought garden</title>
+      <link>https://propellamstudios.github.io/garden/thoughts_on_gardening/</link>
+      <pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://propellamstudios.github.io/garden/thoughts_on_gardening/</guid>
+      <description>Thoughts on cultivating a thought garden</description>
+    </item>
+    
+  </channel>
+</rss>
